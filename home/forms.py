@@ -1,0 +1,47 @@
+from django import forms
+from django.forms import ModelForm
+from .models import Contact,Comment
+
+class ContactForm(ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'subject', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your Name'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your Email'
+            }),
+            'subject': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Subject'
+            }),
+            'message': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Message',
+                'rows': 7
+            }),
+        }
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['full_name', 'email', 'message']
+        widgets = {
+            'full_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your Name'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your Email'
+            }),
+            'message': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Write your comment...',
+                'rows': 7
+            }),
+        }
+        exclude = ('article',)

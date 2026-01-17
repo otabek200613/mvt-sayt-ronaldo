@@ -1,0 +1,78 @@
+<footer class="ftco-footer ftco-section">
+    <div class="container">
+        {% for f in footer_items %}
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">About</h2>
+
+                    {% if about %}
+                        {% if about.0 %}
+                            <p>{{ about.0.description }}</p>
+                        {% else %}
+                            <p>{{ about.description }}</p>
+                        {% endif %}
+                    {% endif %}
+
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate">
+                            <a href="{{ f.twitter }}" target="_blank" rel="noopener">
+                                <span class="icon-twitter"></span>
+                            </a>
+                        </li>
+                        <li class="ftco-animate">
+                            <a href="{{ f.facebook }}" target="_blank" rel="noopener">
+                                <span class="icon-facebook"></span>
+                            </a>
+                        </li>
+                        <li class="ftco-animate">
+                            <a href="{{ f.instagram }}" target="_blank" rel="noopener">
+                                <span class="icon-instagram"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="/"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+                        <li><a href="/#about-section"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+                        <li><a href="/#services-section"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
+                        <li><a href="/#projects-section"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
+                        <li><a href="/#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li>
+                                <span class="icon icon-map-marker"></span>
+                                <span class="text">{{ f.adress }}</span>
+                            </li>
+                            <li>
+                                <a href="tel:{{ f.phone_number|cut:' ' }}">
+                                    <span class="icon icon-phone"></span>
+                                    <span class="text">{{ f.phone_number }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:{{ f.email }}">
+                                    <span class="icon icon-envelope"></span>
+                                    <span class="text">{{ f.email }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</footer>
